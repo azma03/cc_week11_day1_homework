@@ -29,6 +29,20 @@ public class PrinterTest {
     }
 
     @Test
+    public void cannotPrintDueToPaperShortage(){
+        printer.print(3, 4);
+        assertEquals(10, printer.getSheetsOfPaper());
+        assertEquals(20, printer.getTonerVolume());
+    }
+
+    @Test
+    public void cannotPrintDueToTonerShortage(){
+        printer.print(3, 8);
+        assertEquals(10, printer.getSheetsOfPaper());
+        assertEquals(20, printer.getTonerVolume());
+    }
+
+    @Test
     public void canRefillPaper(){
         printer.refill(15);
         assertEquals(25, printer.getSheetsOfPaper());
